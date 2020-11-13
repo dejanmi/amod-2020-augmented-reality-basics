@@ -1,0 +1,15 @@
+<launch>
+  <arg name="veh" doc="Name of vehicle. ex: megaman"/>
+  <arg name="map_file" default="calibration_pattern" doc="Specify a map file, e.g. calibration_pattern" />
+
+    <arg name="pkg_name" value="augmented_reality_basics"/>
+    <arg name="node_name" default="augmented_reality_basics_node"/>
+
+    <group ns="$(arg veh)">
+        <node name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
+            <rosparam command="load" file="$(find augmented_reality_basics)/include/maps/$(arg map_file).yaml"/>
+            <param name="map_file" value="$(arg map_file)" />
+            <param name="pkg_name" value="$(arg pkg_name)" />
+        </node>
+    </group>
+</launch>

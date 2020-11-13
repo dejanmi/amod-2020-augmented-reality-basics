@@ -1,7 +1,7 @@
 # parameters
-ARG REPO_NAME="<REPO_NAME_HERE>"
-ARG DESCRIPTION="<DESCRIPTION_HERE>"
-ARG MAINTAINER="<YOUR_FULL_NAME> (<YOUR_EMAIL_ADDRESS>)"
+ARG REPO_NAME="amod-2020-augmented-reality-basics"
+ARG DESCRIPTION="RH6"
+ARG MAINTAINER="Dejan Milojevic (milojevic.de@gmail.com)"
 # pick an icon from: https://fontawesome.com/v4.7.0/icons/
 ARG ICON="cube"
 
@@ -66,6 +66,7 @@ RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
 COPY ./launchers/. "${LAUNCH_PATH}/"
 COPY ./launchers/default.sh "${LAUNCH_PATH}/"
 RUN dt-install-launchers "${LAUNCH_PATH}"
+
 
 # define default command
 CMD ["bash", "-c", "dt-launcher-${DT_LAUNCHER}"]
